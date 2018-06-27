@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app [<!ENTITY root SYSTEM "root.xml">] >
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>GraduationProject</display-name>
+													  <!-- <welcome-file-list>
+													    <welcome-file>index.jsp</welcome-file>
+													  </welcome-file-list> -->
+  <!--  encodingFile -->
+  <filter>
+		<filter-name>CharEncodingFilter</filter-name>
+		<filter-class>tools.CharEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharEncodingFilter</filter-name>
+		<servlet-name>/*</servlet-name>
+	</filter-mapping>
+	
+	<!-- verify login 过滤器-->
+  
+  <filter>
+		<filter-name>VerifyIsLoginFilter</filter-name>
+		<filter-class>tools.VerifyIsLoginFilter</filter-class>
+		<init-param>
+			<param-name>name</param-name>
+			<param-value>Elizabeth</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>VerifyIsLoginFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  
+  
+  <jsp-config>
+    <taglib>
+      <taglib-uri>jstl-c</taglib-uri>
+      <taglib-location>/WEB-INF/c.tld</taglib-location>
+    </taglib>
+    <taglib>
+      <taglib-uri>jstl-fmt</taglib-uri>
+      <taglib-location>/WEB-INF/fmt.tld</taglib-location>
+    </taglib>
+    <taglib>
+      <taglib-uri>jstl-fn</taglib-uri>
+      <taglib-location>/WEB-INF/fn.tld</taglib-location>
+    </taglib>
+  </jsp-config>
+  
+  &root;
+</web-app>
